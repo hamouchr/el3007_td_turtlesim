@@ -1,0 +1,11 @@
+<launch> 
+
+
+
+
+<!--   LANCEMENT DU SERVICE /clear -->
+<node pkg = "rosservice" type = "rosservice"  name = "clear_srv" args = "call /clear"/>
+
+<node pkg = "rosservice" type = "rosservice"  name = "set_pen_srv" args = 'call /turtle1/set_pen "{r: 120, g: 12 , b: 150, width: 3}"'/>
+
+</launch>

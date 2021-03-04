@@ -1,0 +1,8 @@
+# YAML example, more readable by humans
+
+name: turtle2
+maitre: turtle1
+x: 2.5
+y: 2.3
+theta: 0.0
+

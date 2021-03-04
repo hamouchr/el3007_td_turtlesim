@@ -1,0 +1,31 @@
+<launch> 
+
+
+<arg name="bg_color"  default="10"/>
+
+<!--rosparam  command="load"   file="$(find turtle_sim_control)/config/turtle.yaml" /-->
+
+<param name = "background_r" type = "int" value = "$(arg bg_color)" />
+
+<param name = "background_g" type = "int" value = "$(arg bg_color)" />
+
+<param name = "background_b" type = "int" value = "$(arg bg_color)" />
+
+  <!--group ns="turtle1"-->
+<remap from = "/cmd_vel" to = "/turtle1/cmd_vel" />
+<node  name = "keyboard"  pkg = "teleop_twist_keyboard"  type = "teleop_twist_keyboard.py"  output = "screen" /> 
+
+<!-- node  name = "keyboard"  pkg = "turtle_teleop_key"  type = "turtle_teleop_key_node"  output = "screen" -->
+
+<node pkg = "rosservice" type = "rosservice"  name = "clear_srv" args = "call /clear"/>
+
+
+<!--
+<node pkg = "rosservice" type = "rosservice"  name = "set_pen_srv_$(arg name)" args = 'call /$(arg name)/set_pen "{r: $(arg pen_color), g: $(arg pen_color) , b: $(arg pen_color), width: $(arg pen_width)}"'/>
+-->
+
+<!--
+<node pkg = "rosservice" type = "rosservice"  name = "spawn" args = 'call wait /spawn "{x: 2.5, y: 2.3, theta: 0.0, name: toto1}"'/>
+-->
+ <!--/group-->
+</launch>

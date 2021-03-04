@@ -1,0 +1,15 @@
+<launch>
+
+
+
+
+<node pkg = "rosservice" type = "rosservice"  name = "spawn" args = 'call --wait /spawn "{x: 5, y: 5, theta: 0, name: turtle2}"'/>
+
+<!-- Spawn 3 more turtlesim -->
+
+<node pkg = "turtlesim" name = "mimic_turtle1_to_turtle2" type = "mimic">
+   <remap from = "input" to = "/turtle1" />
+  <remap from = "output" to = "/turtle2" />
+</node>
+
+</launch>
